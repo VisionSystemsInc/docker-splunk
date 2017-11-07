@@ -2,6 +2,9 @@
 
 set -e
 
+ln -snf /usr/share/zoneinfo/${TZ}/etc/localtime
+echo ${TZ} > /etc/timezone
+
 if [ "$1" = 'splunk' ]; then
   shift
   sudo -HEu ${SPLUNK_USER} ${SPLUNK_HOME}/bin/splunk "$@"
